@@ -1,396 +1,1056 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Sunil Karande Portfolio</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Sunil Karande Portfolio</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900" rel="stylesheet">
-    <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
-    <link rel="stylesheet" href="css/animate.css">
-    <link rel="stylesheet" href="css/owl.carousel.min.css">
-    <link rel="stylesheet" href="css/owl.theme.default.min.css">
-    <link rel="stylesheet" href="css/magnific-popup.css">
-    <link rel="stylesheet" href="css/aos.css">
-    <link rel="stylesheet" href="css/ionicons.min.css">
-    <link rel="stylesheet" href="css/flaticon.css">
-    <link rel="stylesheet" href="css/icomoon.css">
-    <link rel="stylesheet" href="css/style.css">
+  <!-- Google Font: Poppins (same as Jayesh) -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
-    <style>
-        #typing-animation {
-            font-size: 30px;
-            font-weight: bold;
-            color: #fff;
-            white-space: nowrap;
-            overflow: hidden;
-        }
-        .zoom-effect {
-            overflow: hidden;
-            transition: transform 0.3s ease-out;
-        }
-        .zoom-effect:hover {
-            transform: scale(1.1);
-        }
-    </style>
+  <!-- Bootstrap 4 CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.2/css/bootstrap.min.css">
+
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    /* ═══════════════════════════
+       GLOBAL — same as Jayesh's style.css
+    ═══════════════════════════ */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      font-size: 15px;
+      font-weight: 400;
+      color: #777;
+      background: #fff;
+      line-height: 1.8;
+    }
+
+    a { color: inherit; transition: .3s all ease; }
+    a:hover { color: #fcd34d; text-decoration: none; }
+
+    /* ═══════════════════════════
+       NAVBAR — exact same dark nav
+    ═══════════════════════════ */
+    .ftco_navbar {
+      background: transparent !important;
+      padding: 0;
+    }
+    .ftco_navbar.scrolled {
+      background: #000 !important;
+    }
+    .ftco_navbar .navbar-brand {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: #fff !important;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+    .ftco_navbar .nav-link {
+      font-size: 13px;
+      font-weight: 600;
+      color: rgba(255,255,255,0.7) !important;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 30px 15px !important;
+      transition: .3s all ease;
+    }
+    .ftco_navbar .nav-link:hover,
+    .ftco_navbar .nav-link.active {
+      color: #fcd34d !important;
+    }
+    .navbar-toggler {
+      border: none;
+      color: #fff !important;
+      font-size: 14px;
+      letter-spacing: 1px;
+    }
+
+    /* ═══════════════════════════
+       HERO SECTION
+    ═══════════════════════════ */
+    .hero {
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 40%, #0f3460 100%);
+      min-height: 100vh;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+      background-size: 60px 60px;
+    }
+    .slider-item {
+      min-height: 100vh;
+      display: flex; align-items: center;
+    }
+    .slider-text {
+      padding: 100px 0 60px;
+    }
+    .one-forth {
+      padding: 2rem 0;
+    }
+    .text .subheading {
+      display: block;
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: #fcd34d;
+      margin-bottom: 0.5rem;
+    }
+    .text h1 {
+      font-size: clamp(2.8rem, 6vw, 5rem);
+      font-weight: 800;
+      color: #fff;
+      line-height: 1.1;
+      margin-bottom: 1rem;
+    }
+    .text h1 span { color: #fcd34d; }
+    .text h2 {
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: rgba(255,255,255,0.7);
+      margin-bottom: 2rem;
+    }
+    #typing-animation {
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: #fff;
+      min-height: 2.2rem;
+      display: block;
+    }
+
+    /* ═══════════════════════════
+       BUTTONS — same as original
+    ═══════════════════════════ */
+    .btn-primary {
+      background: #fcd34d !important;
+      border-color: #fcd34d !important;
+      color: #000 !important;
+      border-radius: 2px;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      transition: .3s all ease;
+    }
+    .btn-primary:hover {
+      background: transparent !important;
+      color: #fcd34d !important;
+      border-color: #fcd34d !important;
+    }
+    .btn-outline-white {
+      border: 2px solid rgba(255,255,255,0.7) !important;
+      color: #fff !important;
+      background: transparent !important;
+      border-radius: 2px;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      transition: .3s all ease;
+    }
+    .btn-outline-white:hover {
+      background: #fff !important;
+      color: #000 !important;
+    }
+
+    /* ═══════════════════════════
+       ABOUT SECTION
+    ═══════════════════════════ */
+    .ftco-about {
+      padding: 7rem 0 4rem;
+    }
+    .img-about {
+      background: #f8f9fa;
+      border-radius: 4px;
+      padding: 2rem;
+      width: 100%;
+    }
+    .about-img img {
+      width: 100%;
+      max-width: 280px;
+      border-radius: 8px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+      margin-bottom: 1.5rem;
+    }
+
+    /* SKILL BARS — same as original */
+    .skill-mf { margin-top: 1rem; }
+    .skill-mf .title-s {
+      font-size: 16px;
+      font-weight: 700;
+      color: #000;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 1.2rem;
+    }
+    .skill-mf span:not(.pull-right) {
+      font-size: 13px;
+      font-weight: 600;
+      color: #333;
+    }
+    .skill-mf .pull-right {
+      float: right;
+      font-size: 12px;
+      color: #777;
+      font-weight: 500;
+    }
+    .skill-mf .progress {
+      background: #e9ecef;
+      border-radius: 0;
+      height: 5px;
+      margin: 4px 0 12px;
+      overflow: visible;
+    }
+    .skill-mf .progress-bar {
+      background: linear-gradient(90deg, #fcd34d, #f59e0b);
+      border-radius: 0;
+      height: 5px;
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 1.2s ease;
+    }
+    .skill-mf .progress-bar.animated { transform: scaleX(1); }
+
+    /* About text */
+    .ftco-about h2 {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #000;
+      margin-bottom: 1.2rem;
+    }
+    .ftco-about p { font-size: 15px; color: #777; line-height: 1.9; margin-bottom: 1rem; }
+
+    .about-info { list-style: none; padding: 0; }
+    .about-info li {
+      padding: 0.5rem 0;
+      border-bottom: 1px solid #f0f0f0;
+      font-size: 14px;
+    }
+    .about-info li span:first-child {
+      font-weight: 700;
+      color: #000;
+      min-width: 110px;
+      display: inline-block;
+    }
+    .about-info li span:last-child { color: #777; }
+
+    /* ═══════════════════════════
+       SECTION COMMON STYLES
+    ═══════════════════════════ */
+    .ftco-section { padding: 7rem 0; }
+    .ftco-section.bg-light { background: #f8f9fa !important; }
+
+    .heading-section h1.big {
+      font-size: 100px;
+      font-weight: 900;
+      color: rgba(0,0,0,0.04);
+      letter-spacing: -5px;
+      line-height: 1;
+      margin-bottom: -50px;
+      display: block;
+    }
+    .heading-section h2 {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #000;
+      position: relative;
+    }
+    .heading-section h2::after {
+      content: '';
+      display: block;
+      width: 60px; height: 3px;
+      background: #fcd34d;
+      margin: 0.75rem auto 0;
+    }
+    .heading-section p { color: #777; font-size: 15px; }
+
+    /* ═══════════════════════════
+       RESUME TIMELINE
+    ═══════════════════════════ */
+    .resume-wrap {
+      padding: 1.5rem 1.75rem;
+      border-left: 3px solid #fcd34d;
+      margin-bottom: 2.5rem;
+      background: #fff;
+      box-shadow: 0 2px 20px rgba(0,0,0,0.06);
+      position: relative;
+    }
+    .resume-wrap::before {
+      content: '';
+      width: 13px; height: 13px;
+      border-radius: 50%;
+      background: #fcd34d;
+      position: absolute; left: -8px; top: 20px;
+      box-shadow: 0 0 10px rgba(252,211,77,0.5);
+    }
+    .resume-wrap .date {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 700;
+      color: #fcd34d;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin-bottom: 0.5rem;
+    }
+    .resume-wrap h2 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #000;
+      margin-bottom: 0.25rem;
+    }
+    .resume-wrap .position {
+      font-size: 13px;
+      color: #999;
+      font-weight: 500;
+      display: block;
+      margin-bottom: 0.75rem;
+    }
+    .resume-wrap ul {
+      padding-left: 1.1rem;
+      margin: 0;
+    }
+    .resume-wrap ul li {
+      font-size: 14px;
+      color: #777;
+      padding: 0.2rem 0;
+      line-height: 1.7;
+    }
+
+    /* ═══════════════════════════
+       PROJECT / WORK CARDS (blog-entry style)
+    ═══════════════════════════ */
+    .blog-entry {
+      width: 100%;
+      background: #fff;
+      box-shadow: 0 2px 20px rgba(0,0,0,0.08);
+      border-radius: 4px;
+      overflow: hidden;
+      margin-bottom: 2rem;
+    }
+    .block-20 {
+      display: block;
+      width: 100%;
+      height: 200px;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      position: relative;
+      overflow: hidden;
+      transition: transform .4s ease;
+    }
+    /* Fallback gradient when no image provided */
+    .block-20.no-img {
+      background: linear-gradient(135deg, #1a1a2e, #0f3460);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .block-20.no-img .proj-icon {
+      font-size: 3rem; color: rgba(252,211,77,0.6);
+    }
+    .zoom-effect { overflow: hidden; transition: transform 0.3s ease-out; }
+    .zoom-effect:hover { transform: scale(1.05); }
+
+    .blog-entry .text { padding: 1.2rem 1.5rem 1.5rem; }
+    .blog-entry .text h3.heading {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #000;
+      margin-bottom: 0.5rem;
+    }
+    .blog-entry .text p { font-size: 14px; color: #777; line-height: 1.7; margin: 0; }
+    .blog-entry .text .tag {
+      display: inline-block;
+      font-size: 11px;
+      background: #fef3c7;
+      color: #92400e;
+      border-radius: 2px;
+      padding: 2px 8px;
+      margin: 0 3px 4px 0;
+      font-weight: 600;
+    }
+
+    /* ═══════════════════════════
+       CERTIFICATES (same card style)
+    ═══════════════════════════ */
+    /* Uses same .blog-entry card pattern as Jayesh */
+
+    /* ═══════════════════════════
+       ACHIEVEMENTS
+    ═══════════════════════════ */
+    .achievements-list {
+      list-style: none;
+      padding: 0;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .achievements-list li {
+      padding: 1.2rem 1.5rem;
+      margin-bottom: 1rem;
+      border-left: 4px solid #fcd34d;
+      background: #fff;
+      box-shadow: 0 2px 15px rgba(0,0,0,0.06);
+      font-size: 15px;
+      color: #555;
+      line-height: 1.7;
+    }
+    .achievements-list li strong { color: #000; }
+    .achievements-list li::before {
+      content: '🏆 ';
+    }
+
+    /* ═══════════════════════════
+       CONTACT SECTION
+    ═══════════════════════════ */
+    .contact-section { background: #f8f9fa; }
+    .contact-form {
+      padding: 2rem;
+      background: #fff;
+      box-shadow: 0 2px 20px rgba(0,0,0,0.06);
+    }
+    .contact-form .form-control {
+      border: 1px solid #e9ecef;
+      border-radius: 2px;
+      height: 44px;
+      font-size: 14px;
+      color: #555;
+      padding: 0 1rem;
+    }
+    .contact-form textarea.form-control { height: 130px; padding: 0.75rem 1rem; }
+    .contact-form .form-control:focus {
+      border-color: #fcd34d;
+      box-shadow: 0 0 0 3px rgba(252,211,77,0.15);
+    }
+    .info-wrap {
+      background: #fff;
+      padding: 2rem;
+      height: 100%;
+      box-shadow: 0 2px 20px rgba(0,0,0,0.06);
+    }
+    .info-wrap p {
+      font-size: 15px;
+      color: #777;
+      margin-bottom: 1rem;
+      display: flex; align-items: flex-start; gap: 0.75rem;
+    }
+    .info-wrap p .icon {
+      width: 36px; height: 36px; border-radius: 50%;
+      background: #fef3c7;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.9rem; color: #92400e;
+      flex-shrink: 0;
+    }
+    .info-wrap p .text-wrap strong {
+      display: block; font-size: 12px;
+      text-transform: uppercase; letter-spacing: 1px;
+      color: #000; margin-bottom: 2px;
+    }
+    .info-wrap p .text-wrap a { color: #777; }
+    .info-wrap p .text-wrap a:hover { color: #fcd34d; }
+
+    /* ═══════════════════════════
+       FOOTER
+    ═══════════════════════════ */
+    footer {
+      background: #1a1a2e;
+      padding: 2.5rem 0;
+      text-align: center;
+    }
+    footer p {
+      font-size: 13px;
+      color: rgba(255,255,255,0.5);
+      margin: 0;
+    }
+    footer span { color: #fcd34d; }
+    footer a { color: rgba(255,255,255,0.5); }
+    footer a:hover { color: #fcd34d; }
+
+    /* ═══════════════════════════
+       SCROLL REVEAL (ftco-animate)
+    ═══════════════════════════ */
+    .ftco-animate {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .ftco-animate.fadeInUp { opacity: 1; transform: translateY(0); }
+
+    /* ═══════════════════════════
+       RESPONSIVE
+    ═══════════════════════════ */
+    @media (max-width: 768px) {
+      .text h1 { font-size: 2.8rem; }
+      .heading-section h1.big { font-size: 55px; margin-bottom: -30px; }
+      .ftco-section { padding: 4rem 0; }
+      .ftco-about { padding: 4rem 0 2rem; }
+    }
+  </style>
 </head>
 <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
 
-<!-- NAVBAR -->
-<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar ftco-navbar-light site-navbar-target" id="ftco-navbar">
-    <div class="container">
-        <a class="navbar-brand" href="index.html">Jayesh Pagar</a>
-        <button class="navbar-toggler js-fh5co-nav-toggle fh5co-nav-toggle" type="button" data-toggle="collapse" data-target="#ftco-nav">
-            <span class="oi oi-menu"></span> Menu
-        </button>
-        <div class="collapse navbar-collapse" id="ftco-nav">
-            <ul class="navbar-nav nav ml-auto">
-                <li class="nav-item"><a href="#home-section" class="nav-link"><span>Home</span></a></li>
-                <li class="nav-item"><a href="#about-section" class="nav-link"><span>About</span></a></li>
-                <li class="nav-item"><a href="#resume-section" class="nav-link"><span>Resume</span></a></li>
-                <li class="nav-item"><a href="#work-section" class="nav-link"><span>Work Portfolio</span></a></li>
-                <li class="nav-item"><a href="#project-section" class="nav-link"><span>Academic Projects</span></a></li>
-                <li class="nav-item"><a href="#certificates-section" class="nav-link"><span>Certificates</span></a></li>
-                <li class="nav-item"><a href="#achievements-section" class="nav-link"><span>Achievements</span></a></li>
-                <li class="nav-item"><a href="#contact-section" class="nav-link"><span>Contact</span></a></li>
-            </ul>
-        </div>
+<!-- ═══════════════════════════════════════════
+     NAVBAR — exact same as Jayesh
+═══════════════════════════════════════════ -->
+<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar ftco-navbar-light site-navbar-target fixed-top" id="ftco-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="index.html">Sunil Karande</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav">
+      <span class="oi oi-menu"></span> <span style="font-size:13px;letter-spacing:1px;">Menu</span>
+    </button>
+    <div class="collapse navbar-collapse" id="ftco-nav">
+      <ul class="navbar-nav nav ml-auto">
+        <li class="nav-item"><a href="#home-section" class="nav-link"><span>Home</span></a></li>
+        <li class="nav-item"><a href="#about-section" class="nav-link"><span>About</span></a></li>
+        <li class="nav-item"><a href="#resume-section" class="nav-link"><span>Resume</span></a></li>
+        <li class="nav-item"><a href="#work-section" class="nav-link"><span>Work Portfolio</span></a></li>
+        <li class="nav-item"><a href="#project-section" class="nav-link"><span>Academic Projects</span></a></li>
+        <li class="nav-item"><a href="#certificates-section" class="nav-link"><span>Certificates</span></a></li>
+        <li class="nav-item"><a href="#achievements-section" class="nav-link"><span>Achievements</span></a></li>
+        <li class="nav-item"><a href="#contact-section" class="nav-link"><span>Contact</span></a></li>
+      </ul>
     </div>
+  </div>
 </nav>
 
-<!-- HERO -->
+
+<!-- ═══════════════════════════════════════════
+     HERO — exact same as Jayesh
+═══════════════════════════════════════════ -->
 <section id="home-section" class="hero">
-    <div class="home-slider owl-carousel">
-        <div class="slider-item">
-            <div class="overlay"></div>
-            <div class="container">
-                <div class="row d-md-flex no-gutters slider-text align-items-end justify-content-end">
-                    <div class="one-third js-fullheight order-md-last img" style="background-image:none;">
-                        <div class="overlay"></div>
-                    </div>
-                    <div class="one-forth d-flex align-items-center ftco-animate">
-                        <div class="text">
-                            <span class="subheading">Hello!</span>
-                            <h1 class="mb-4 mt-3">I'm <span>Jayesh Pagar</span></h1>
-                            <span id="typing-animation"></span>
-                            <script>
-                                const typingElement = document.getElementById('typing-animation');
-                                const texts = ["Automation Tester", "Security Tester", "QA Engineer"];
-                                let idx = 0;
-                                function type() {
-                                    let text = texts[idx];
-                                    let i = 0;
-                                    typingElement.textContent = "";
-                                    let interval = setInterval(() => {
-                                        typingElement.textContent += text[i];
-                                        i++;
-                                        if (i === text.length) {
-                                            clearInterval(interval);
-                                            setTimeout(() => {
-                                                idx = (idx + 1) % texts.length;
-                                                type();
-                                            }, 1500);
-                                        }
-                                    }, 150);
-                                }
-                                type();
-                            </script>
-                            <br><br>
-                            <h2>Jr. Test Engineer | Automation & Security Testing</h2>
-                            <p>
-                                <a href="https://www.linkedin.com/in/jayesh-pagar-333019231" class="btn btn-primary py-3 px-4">LinkedIn</a>
-                                <a href="https://github.com/jayeshpagar070" class="btn btn-white btn-outline-white py-3 px-4">GitHub</a>
-                                <a href="https://jayeshpagar070.github.io" class="btn btn-primary py-3 px-4">Portfolio</a>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+  <div class="slider-item">
+    <div class="container">
+      <div class="row slider-text align-items-center">
+        <div class="col-md-7 col-lg-6 ftco-animate one-forth">
+          <div class="text">
+            <span class="subheading">Hello!</span>
+            <h1 class="mb-4 mt-3">I'm <span>Sunil Karande</span></h1>
+            <span id="typing-animation"></span>
+            <br><br>
+            <h2>Jr. Test Engineer | Automation &amp; Security Testing</h2>
+            <p>
+              <a href="https://www.linkedin.com/in/sunil-karande-120423203/" target="_blank" class="btn btn-primary py-3 px-4 mr-2 mb-2">LinkedIn</a>
+              <a href="https://github.com/Sunil-Karande" target="_blank" class="btn btn-outline-white py-3 px-4 mr-2 mb-2">GitHub</a>
+              <a href="#" class="btn btn-primary py-3 px-4 mb-2">Portfolio</a>
+            </p>
+          </div>
         </div>
+        <!-- Profile photo right side -->
+        <div class="col-md-5 col-lg-6 d-none d-md-flex justify-content-center align-items-center">
+          <div style="width:280px;height:280px;border-radius:50%;border:5px solid #fcd34d;overflow:hidden;display:flex;align-items:center;justify-content:center;background:#16213e;box-shadow:0 20px 60px rgba(0,0,0,0.4);">
+            <!-- ✏️ Replace the icon below with: <img src="images/Profile1.png" style="width:100%;height:100%;object-fit:cover;" alt="Your Name"> -->
+            <i class="fa fa-user" style="font-size:7rem;color:rgba(252,211,77,0.3);"></i>
+          </div>
+        </div>
+      </div>
     </div>
+  </div>
 </section>
 
-<!-- ABOUT -->
+
+<!-- ═══════════════════════════════════════════
+     ABOUT — exact same as Jayesh
+═══════════════════════════════════════════ -->
 <section class="ftco-about img ftco-section ftco-no-pb" id="about-section">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-6 col-lg-5 d-flex">
-                <div class="img-about img d-flex align-items-stretch">
-                    <div class="overlay">
-                        <div class="about-img text-center">
-                            <img src="images/Profile1.png" class="img-fluid rounded b-shadow-a" alt="">
-                        </div>
-                        <div class="skill-mf">
-                            <p class="title-s">Skills</p>
-                            <span>Java</span> <span class="pull-right">85%</span>
-                            <div class="progress"><div class="progress-bar" style="width:85%"></div></div>
-                            <span>Selenium WebDriver</span> <span class="pull-right">90%</span>
-                            <div class="progress"><div class="progress-bar" style="width:90%"></div></div>
-                            <span>Manual Testing</span> <span class="pull-right">95%</span>
-                            <div class="progress"><div class="progress-bar" style="width:95%"></div></div>
-                            <span>API Testing (Postman)</span> <span class="pull-right">85%</span>
-                            <div class="progress"><div class="progress-bar" style="width:85%"></div></div>
-                            <span>MySQL</span> <span class="pull-right">75%</span>
-                            <div class="progress"><div class="progress-bar" style="width:75%"></div></div>
-                            <span>Burp Suite</span> <span class="pull-right">80%</span>
-                            <div class="progress"><div class="progress-bar" style="width:80%"></div></div>
-                            <span>TestNG / Maven</span> <span class="pull-right">85%</span>
-                            <div class="progress"><div class="progress-bar" style="width:85%"></div></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-7 pl-lg-5 pb-5">
-                <h2 class="mb-4">About Me</h2>
-                <p>Test Engineer with 2+ years of hands-on experience in automation and security testing across web, Android, and iOS platforms. Skilled in Java, Selenium WebDriver, API testing, Stripe payment gateway testing, and database validation. Experienced in Agile Scrum, with a track record of optimizing regression cycles, ensuring zero critical defects, and delivering secure, scalable releases.</p>
-                <ul class="about-info mt-4 px-md-0 px-2">
-                    <li class="d-flex"><span>Profile:</span> <span>Automation & Security Test Engineer</span></li>
-                    <li class="d-flex"><span>Domain:</span> <span>Web, Mobile, API, Security Testing</span></li>
-                    <li class="d-flex"><span>Education:</span> <span>PGDACC, BE Mechanical</span></li>
-                    <li class="d-flex"><span>Languages:</span> <span>English, Hindi, Marathi</span></li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</section>
+  <div class="container">
+    <div class="row d-flex">
 
-<!-- RESUME -->
-<section class="ftco-section" id="resume-section">
-    <div class="container">
-        <div class="row justify-content-center pb-5">
-            <div class="col-md-10 heading-section text-center ftco-animate">
-                <h1 class="big big-2">Resume</h1>
-                <h2 class="mb-4">Professional Experience</h2>
+      <!-- Left: Photo + Skill bars (same as Jayesh) -->
+      <div class="col-md-6 col-lg-5 d-flex ftco-animate">
+        <div class="img-about w-100">
+          <div class="about-img text-center">
+            <!-- ✏️ Replace with: <img src="images/Profile1.png" class="img-fluid rounded" alt="Your Name"> -->
+            <div style="width:200px;height:200px;border-radius:50%;border:4px solid #fcd34d;display:flex;align-items:center;justify-content:center;background:#f8f9fa;margin:0 auto 1.5rem;">
+              <i class="fa fa-user" style="font-size:5rem;color:#ddd;"></i>
             </div>
-        </div>
-        
-        <div class="resume-wrap ftco-animate">
-            <span class="date">Dec 2024 – Present</span>
-            <h2>Junior Test Engineer</h2>
-            <span class="position">Netwin InfoSolutions Pvt. Ltd – Nashik, IN</span>
-            <ul>
-                <li>Tested Amazon & Walmart integrations, verifying accurate sync of products, orders, and inventory with EcomCircle platform.</li>
-                <li>Automated regression workflows in Selenium, improving efficiency and coverage.</li>
-                <li>Performed API testing (Postman), MySQL validation, and UI testing for Warehouse module.</li>
-                <li>Validated Stripe payment gateway integration and conducted web security testing using Burp Suite.</li>
-            </ul>
-        </div>
+          </div>
+          <div class="skill-mf">
+            <p class="title-s">Skills</p>
 
-        <div class="resume-wrap ftco-animate">
-            <span class="date">Aug 2023 – Dec 2024</span>
-            <h2>QA Associate</h2>
-            <span class="position">AI Alpha Tech – Nashik, IN</span>
-            <ul>
-                <li>Led end-to-end testing for Elevate360 platform (web & mobile).</li>
-                <li>Performed functional, UI, cross-browser, and database testing.</li>
-                <li>Validated payment workflows and managed Jira-based bug tracking.</li>
-            </ul>
-        </div>
+            <span>Java</span><span class="pull-right">85%</span>
+            <div class="progress"><div class="progress-bar" style="--w:0.85" data-width="0.85"></div></div>
 
-        <div class="resume-wrap ftco-animate">
-            <span class="date">Apr 2023 – Jul 2023</span>
-            <h2>Automation Test Engineer (Intern)</h2>
-            <span class="position">AI Varient – Bangalore, IN</span>
-            <ul>
-                <li>Automated 75% of regression test cases in Selenium, reducing testing time by 15%.</li>
-                <li>Performed bug reporting, unit testing, and collaborated in Agile sprints.</li>
-            </ul>
-        </div>
-    </div>
-</section>
+            <span>Selenium WebDriver</span><span class="pull-right">90%</span>
+            <div class="progress"><div class="progress-bar" data-width="0.90"></div></div>
 
-<!-- WORK PORTFOLIO -->
-<section class="ftco-section" id="work-section">
-    <div class="container">
-        <div class="row justify-content-center mb-5">
-            <div class="col-md-7 heading-section text-center ftco-animate">
-                <h1 class="big big-2">Work Portfolio</h1>
-                <h2 class="mb-4">Projects from Professional Experience</h2>
-            </div>
-        </div>
-        <div class="row d-flex">
-            <div class="col-md-4 d-flex ftco-animate">
-                <div class="blog-entry">
-                    <a href="#" class="block-20 zoom-effect" style="background-image:url('images/ecomcircle.jpg');"></a>
-                    <div class="text mt-3">
-                        <h3 class="heading">EcomCircle</h3>
-                        <p>Dropshipping automation platform – Tested integrations, APIs, and warehouse module with Selenium & Postman.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 d-flex ftco-animate">
-                <div class="blog-entry">
-                    <a href="#" class="block-20 zoom-effect" style="background-image:url('images/mapmymaintenance.jpg');"></a>
-                    <div class="text mt-3">
-                        <h3 class="heading">MapMyMaintenance</h3>
-                        <p>Marine maintenance platform – Performed end-to-end testing on web & mobile apps, Stripe validation, and security testing.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 d-flex ftco-animate">
-                <div class="blog-entry">
-                    <a href="#" class="block-20 zoom-effect" style="background-image:url('images/quizhaven.jpg');"></a>
-                    <div class="text mt-3">
-                        <h3 class="heading">Quiz Haven</h3>
-                        <p>Dynamic Q&A platform – Automated 60% of functional test cases, validated Stripe, and ensured responsive UI testing.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+            <span>Manual Testing</span><span class="pull-right">95%</span>
+            <div class="progress"><div class="progress-bar" data-width="0.95"></div></div>
 
-<!-- ACADEMIC PROJECTS -->
-<section class="ftco-section" id="project-section">
-    <div class="container">
-        <div class="row justify-content-center mb-5">
-            <div class="col-md-7 heading-section text-center ftco-animate">
-                <h1 class="big big-2">Academic Projects</h1>
-                <h2 class="mb-4">Highlighted Academic Work</h2>
-            </div>
-        </div>
-        <div class="row d-flex">
-            <div class="col-md-4 d-flex ftco-animate">
-                <div class="blog-entry">
-                    <a href="https://github.com/jayeshpagar070/Django-Ecommerce_Website" class="block-20 zoom-effect" style="background-image:url('images/project_4.jpeg');"></a>
-                    <div class="text mt-3">
-                        <h3 class="heading">Ecommerce Website</h3>
-                        <p>Automated UI & functional test cases using Selenium; performed regression after deployments with Python scripts.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 d-flex ftco-animate">
-                <div class="blog-entry">
-                    <a href="https://github.com/jayeshpagar070/Data-Engineering-" class="block-20 zoom-effect" style="background-image:url('images/project_4.jpeg');"></a>
-                    <div class="text mt-3">
-                        <h3 class="heading">ETL Pipeline</h3>
-                        <p>Built ETL pipeline in Python to migrate and transform employee data from CSV to MySQL in Dockerized setup.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 d-flex ftco-animate">
-                <div class="blog-entry">
-                    <a href="#" class="block-20 zoom-effect" style="background-image:url('images/project_2.jpeg');"></a>
-                    <div class="text mt-3">
-                        <h3 class="heading">AI-based Tool Detection</h3>
-                        <p>Developed AI-based inspection system for mechanical tool detection using Python, AI & ML.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+            <span>API Testing (Postman)</span><span class="pull-right">85%</span>
+            <div class="progress"><div class="progress-bar" data-width="0.85"></div></div>
 
-<!-- CERTIFICATES -->
-<section class="ftco-section" id="certificates-section">
-    <div class="container">
-        <div class="row justify-content-center mb-5">
-            <div class="col-md-7 heading-section text-center ftco-animate">
-                <h1 class="big big-2">Certificates</h1>
-                <h2 class="mb-4">Professional Certifications</h2>
-            </div>
-        </div>
-        <div class="row d-flex">
-            <div class="col-md-4 d-flex ftco-animate">
-                <div class="blog-entry">
-                    <a href="#" class="block-20 zoom-effect" style="background-image:url('images/cr_1.png');"></a>
-                    <div class="text mt-3"><h3 class="heading">Python – IIT Bombay</h3></div>
-                </div>
-            </div>
-            <div class="col-md-4 d-flex ftco-animate">
-                <div class="blog-entry">
-                    <a href="#" class="block-20 zoom-effect" style="background-image:url('images/cr_2 (1).jpg');"></a>
-                    <div class="text mt-3"><h3 class="heading">Software Testing – ExcelR</h3></div>
-                </div>
-            </div>
-            <div class="col-md-4 d-flex ftco-animate">
-                <div class="blog-entry">
-                    <a href="#" class="block-20 zoom-effect" style="background-image:url('images/cr_3 (2).jpg');"></a>
-                    <div class="text mt-3"><h3 class="heading">Selenium Cucumber – Java</h3></div>
-                </div>
-            </div>
-			<div class="col-md-4 d-flex ftco-animate">
-                <div class="blog-entry">
-                    <a href="#" class="block-20 zoom-effect" style="background-image:url('images/cr_5 (4).jpg');"></a>
-                    <div class="text mt-3"><h3 class="heading">Solution Architecture – AWS </h3></div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+            <span>MySQL</span><span class="pull-right">75%</span>
+            <div class="progress"><div class="progress-bar" data-width="0.75"></div></div>
 
-<!-- ACHIEVEMENTS -->
-<section class="ftco-section" id="achievements-section">
-    <div class="container">
-        <div class="row justify-content-center mb-5">
-            <div class="col-md-7 heading-section text-center ftco-animate">
-                <h1 class="big big-2">Achievements</h1>
-                <h2 class="mb-4">Key Milestones</h2>
-            </div>
+            <span>Burp Suite</span><span class="pull-right">80%</span>
+            <div class="progress"><div class="progress-bar" data-width="0.80"></div></div>
+
+            <span>TestNG / Maven</span><span class="pull-right">85%</span>
+            <div class="progress"><div class="progress-bar" data-width="0.85"></div></div>
+          </div>
         </div>
-        <ul>
-            <li>Received client recommendation for achieving 100% functional requirement coverage with zero critical defects in production.</li>
-            <li>Reduced post-release defects by 30% through secure, reliable build releases.</li>
+      </div>
+
+      <!-- Right: About text (same as Jayesh) -->
+      <div class="col-md-6 col-lg-7 pl-lg-5 pb-5 ftco-animate">
+        <h2 class="mb-4">About Me</h2>
+        <p>
+          Test Engineer with <strong>X+ years</strong> of hands-on experience in automation and security
+          testing across web, Android, and iOS platforms. Skilled in Java, Selenium WebDriver, API testing,
+          Stripe payment gateway testing, and database validation. Experienced in Agile Scrum, with a track
+          record of optimizing regression cycles, ensuring zero critical defects, and delivering secure,
+          scalable releases.
+        </p>
+        <ul class="about-info mt-4 px-md-0 px-2">
+          <li class="d-flex"><span>Profile:</span><span>Automation &amp; Security Test Engineer</span></li>
+          <li class="d-flex"><span>Domain:</span><span>Web, Mobile, API, Security Testing</span></li>
+          <li class="d-flex"><span>Education:</span><span>Your Degree, Your College</span></li>
+          <li class="d-flex"><span>Languages:</span><span>English, Hindi, Marathi</span></li>
         </ul>
+      </div>
+
     </div>
+  </div>
 </section>
 
-<!-- CONTACT -->
-<!-- CONTACT -->
-<section class="ftco-section contact-section ftco-no-pb" id="contact-section">
-    <div class="container">
-        <div class="row justify-content-center mb-5">
-            <div class="col-md-7 heading-section text-center ftco-animate">
-                <h1 class="big big-2">Contact</h1>
-                <h2 class="mb-4">Get in Touch</h2>
-            </div>
-        </div>
-        <div class="row block-9">
-            <div class="col-md-6 order-md-last d-flex">
-                <!-- Working Formspree Form -->
-                <form action="https://formspree.io/f/xqalwybk" method="POST" class="bg-light p-4 p-md-5 contact-form">
-                    <div class="form-group">
-                        <input type="text" name="name" class="form-control" placeholder="Your Name" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="email" name="_replyto" class="form-control" placeholder="Your Email" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="text" name="subject" class="form-control" placeholder="Subject" required>
-                    </div>
-                    <div class="form-group">
-                        <textarea name="message" class="form-control" placeholder="Message" required></textarea>
-                    </div>
-                    <div class="form-group">
-                        <input type="submit" value="Send Message" class="btn btn-primary py-3 px-5">
-                    </div>
-                </form>
-            </div>
-            <div class="col-md-6 d-flex">
-                <div class="info bg-light p-4">
-                    <p><span>Address:</span> Pune, Maharashtra, India</p>
-                    <p><span>Phone:</span> <a href="tel://9511996248">+91 95119 96248</a></p>
-                    <p><span>Email:</span> <a href="mailto:jayeshpagar070@gmail.com">jayeshpagar070@gmail.com</a></p>
-                </div>
-            </div>
-        </div>
+
+<!-- ═══════════════════════════════════════════
+     RESUME — exact same as Jayesh
+═══════════════════════════════════════════ -->
+<section class="ftco-section bg-light" id="resume-section">
+  <div class="container">
+    <div class="row justify-content-center pb-5">
+      <div class="col-md-10 heading-section text-center ftco-animate">
+        <h1 class="big big-2">Resume</h1>
+        <h2 class="mb-4">Professional Experience</h2>
+      </div>
     </div>
+
+    <div class="resume-wrap ftco-animate">
+      <span class="date">Month Year – Present</span>
+      <h2>Your Current Job Title</h2>
+      <span class="position">Company Name – City, IN</span>
+      <ul>
+        <li>Describe your key responsibility or achievement here.</li>
+        <li>Automated regression workflows in Selenium, improving efficiency and coverage.</li>
+        <li>Performed API testing (Postman), MySQL validation, and UI testing.</li>
+        <li>Validated payment gateway integration and conducted web security testing using Burp Suite.</li>
+      </ul>
+    </div>
+
+    <div class="resume-wrap ftco-animate">
+      <span class="date">Month Year – Month Year</span>
+      <h2>Previous Job Title</h2>
+      <span class="position">Previous Company – City, IN</span>
+      <ul>
+        <li>Led end-to-end testing for a web &amp; mobile platform.</li>
+        <li>Performed functional, UI, cross-browser, and database testing.</li>
+        <li>Validated payment workflows and managed Jira-based bug tracking.</li>
+      </ul>
+    </div>
+
+    <div class="resume-wrap ftco-animate">
+      <span class="date">Month Year – Month Year</span>
+      <h2>Automation Test Engineer (Intern)</h2>
+      <span class="position">Company Name – City, IN</span>
+      <ul>
+        <li>Automated 75% of regression test cases in Selenium, reducing testing time by 15%.</li>
+        <li>Performed bug reporting, unit testing, and collaborated in Agile sprints.</li>
+      </ul>
+    </div>
+
+  </div>
 </section>
-<footer>
-<!-- JS -->
-<script src="js/jquery.min.js"></script>
-<script src="js/jquery-migrate-3.0.1.min.js"></script>
-<script src="js/popper.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script src="js/jquery.easing.1.3.js"></script>
-<script src="js/jquery.waypoints.min.js"></script>
-<script src="js/jquery.stellar.min.js"></script>
-<script src="js/owl.carousel.min.js"></script>
-<script src="js/jquery.magnific-popup.min.js"></script>
-<script src="js/aos.js"></script>
-<script src="js/jquery.animateNumber.min.js"></script>
-<script src="js/scrollax.min.js"></script>
-<script src="js/main.js"></script>
+
+
+<!-- ═══════════════════════════════════════════
+     WORK PORTFOLIO — exact same as Jayesh
+═══════════════════════════════════════════ -->
+<section class="ftco-section" id="work-section">
+  <div class="container">
+    <div class="row justify-content-center mb-5">
+      <div class="col-md-7 heading-section text-center ftco-animate">
+        <h1 class="big big-2">Work</h1>
+        <h2 class="mb-4">Projects from Professional Experience</h2>
+      </div>
+    </div>
+    <div class="row d-flex">
+
+      <div class="col-md-4 d-flex ftco-animate">
+        <div class="blog-entry w-100">
+          <!-- ✏️ Replace background-image with your project screenshot: style="background-image:url('images/project1.jpg')" -->
+          <a href="#" class="block-20 zoom-effect no-img">
+            <span class="proj-icon"><i class="fa fa-shopping-cart"></i></span>
+          </a>
+          <div class="text mt-3">
+            <h3 class="heading">Project One Name</h3>
+            <p>Dropshipping automation platform – Tested integrations, APIs, and warehouse module with Selenium &amp; Postman.</p>
+            <div class="mt-2">
+              <span class="tag">Selenium</span><span class="tag">Java</span><span class="tag">Postman</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4 d-flex ftco-animate">
+        <div class="blog-entry w-100">
+          <a href="#" class="block-20 zoom-effect no-img">
+            <span class="proj-icon"><i class="fa fa-ship"></i></span>
+          </a>
+          <div class="text mt-3">
+            <h3 class="heading">Project Two Name</h3>
+            <p>Marine maintenance platform – Performed end-to-end testing on web &amp; mobile apps, Stripe validation, and security testing.</p>
+            <div class="mt-2">
+              <span class="tag">Burp Suite</span><span class="tag">Stripe</span><span class="tag">REST API</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4 d-flex ftco-animate">
+        <div class="blog-entry w-100">
+          <a href="#" class="block-20 zoom-effect no-img">
+            <span class="proj-icon"><i class="fa fa-question-circle"></i></span>
+          </a>
+          <div class="text mt-3">
+            <h3 class="heading">Project Three Name</h3>
+            <p>Dynamic Q&amp;A platform – Automated 60% of functional test cases, validated Stripe, and ensured responsive UI testing.</p>
+            <div class="mt-2">
+              <span class="tag">TestNG</span><span class="tag">MySQL</span><span class="tag">Jira</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════
+     ACADEMIC PROJECTS — exact same as Jayesh
+═══════════════════════════════════════════ -->
+<section class="ftco-section bg-light" id="project-section">
+  <div class="container">
+    <div class="row justify-content-center mb-5">
+      <div class="col-md-7 heading-section text-center ftco-animate">
+        <h1 class="big big-2">Projects</h1>
+        <h2 class="mb-4">Highlighted Academic Work</h2>
+      </div>
+    </div>
+    <div class="row d-flex">
+
+      <div class="col-md-4 d-flex ftco-animate">
+        <div class="blog-entry w-100">
+          <a href="https://github.com/yourusername/ecommerce-project" target="_blank" class="block-20 zoom-effect no-img">
+            <span class="proj-icon"><i class="fa fa-store"></i></span>
+          </a>
+          <div class="text mt-3">
+            <h3 class="heading">Ecommerce Website</h3>
+            <p>Automated UI &amp; functional test cases using Selenium; performed regression after deployments with Python scripts.</p>
+            <div class="mt-2">
+              <span class="tag">Selenium</span><span class="tag">Python</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4 d-flex ftco-animate">
+        <div class="blog-entry w-100">
+          <a href="https://github.com/yourusername/etl-pipeline" target="_blank" class="block-20 zoom-effect no-img">
+            <span class="proj-icon"><i class="fa fa-database"></i></span>
+          </a>
+          <div class="text mt-3">
+            <h3 class="heading">ETL Pipeline</h3>
+            <p>Built ETL pipeline in Python to migrate and transform employee data from CSV to MySQL in a Dockerized setup.</p>
+            <div class="mt-2">
+              <span class="tag">Python</span><span class="tag">MySQL</span><span class="tag">Docker</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4 d-flex ftco-animate">
+        <div class="blog-entry w-100">
+          <a href="#" class="block-20 zoom-effect no-img">
+            <span class="proj-icon"><i class="fa fa-robot"></i></span>
+          </a>
+          <div class="text mt-3">
+            <h3 class="heading">AI-based Tool Detection</h3>
+            <p>Developed AI-based inspection system for mechanical tool detection using Python, AI &amp; ML.</p>
+            <div class="mt-2">
+              <span class="tag">Python</span><span class="tag">AI/ML</span><span class="tag">OpenCV</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════
+     CERTIFICATES — exact same as Jayesh
+═══════════════════════════════════════════ -->
+<section class="ftco-section" id="certificates-section">
+  <div class="container">
+    <div class="row justify-content-center mb-5">
+      <div class="col-md-7 heading-section text-center ftco-animate">
+        <h1 class="big big-2">Certs</h1>
+        <h2 class="mb-4">Professional Certifications</h2>
+      </div>
+    </div>
+    <div class="row d-flex">
+
+      <div class="col-md-3 d-flex ftco-animate">
+        <div class="blog-entry w-100">
+          <!-- ✏️ Replace no-img with: style="background-image:url('images/cr_1.png')" and remove no-img class -->
+          <a href="#" class="block-20 zoom-effect no-img">
+            <span class="proj-icon"><i class="fa fa-certificate"></i></span>
+          </a>
+          <div class="text mt-3"><h3 class="heading">Python – IIT Bombay</h3></div>
+        </div>
+      </div>
+
+      <div class="col-md-3 d-flex ftco-animate">
+        <div class="blog-entry w-100">
+          <a href="#" class="block-20 zoom-effect no-img">
+            <span class="proj-icon"><i class="fa fa-certificate"></i></span>
+          </a>
+          <div class="text mt-3"><h3 class="heading">Software Testing – ExcelR</h3></div>
+        </div>
+      </div>
+
+      <div class="col-md-3 d-flex ftco-animate">
+        <div class="blog-entry w-100">
+          <a href="#" class="block-20 zoom-effect no-img">
+            <span class="proj-icon"><i class="fa fa-certificate"></i></span>
+          </a>
+          <div class="text mt-3"><h3 class="heading">Selenium Cucumber – Java</h3></div>
+        </div>
+      </div>
+
+      <div class="col-md-3 d-flex ftco-animate">
+        <div class="blog-entry w-100">
+          <a href="#" class="block-20 zoom-effect no-img">
+            <span class="proj-icon"><i class="fa fa-certificate"></i></span>
+          </a>
+          <div class="text mt-3"><h3 class="heading">Solution Architecture – AWS</h3></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════
+     ACHIEVEMENTS — exact same as Jayesh
+═══════════════════════════════════════════ -->
+<section class="ftco-section bg-light" id="achievements-section">
+  <div class="container">
+    <div class="row justify-content-center mb-5">
+      <div class="col-md-7 heading-section text-center ftco-animate">
+        <h1 class="big big-2">Wins</h1>
+        <h2 class="mb-4">Key Milestones</h2>
+      </div>
+    </div>
+    <div class="row justify-content-center ftco-animate">
+      <div class="col-md-10">
+        <ul class="achievements-list">
+          <li>Received <strong>client recommendation</strong> for achieving 100% functional requirement coverage with zero critical defects in production.</li>
+          <li>Reduced <strong>post-release defects by 30%</strong> through secure, reliable build releases.</li>
+          <li>Add your achievement — e.g. <strong>Automated 75% of regression suite</strong>, reducing testing time from 3 days to 4 hours.</li>
+          <li>Add your achievement — e.g. recognized as <strong>top performer</strong> for discovering critical security vulnerabilities before production.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════
+     CONTACT — exact same as Jayesh (with Formspree)
+═══════════════════════════════════════════ -->
+<section class="ftco-section contact-section ftco-no-pb" id="contact-section">
+  <div class="container">
+    <div class="row justify-content-center mb-5">
+      <div class="col-md-7 heading-section text-center ftco-animate">
+        <h1 class="big big-2">Contact</h1>
+        <h2 class="mb-4">Get in Touch</h2>
+      </div>
+    </div>
+
+    <div class="row block-9 pb-5">
+
+      <!-- Contact Form (same as Jayesh — uses Formspree) -->
+      <div class="col-md-6 order-md-last d-flex ftco-animate">
+        <!--
+          ✏️ HOW TO MAKE THE FORM WORK:
+          1. Go to https://formspree.io and sign up for free
+          2. Create a new form → copy your form endpoint URL
+          3. Replace the action URL below with your own
+        -->
+        <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" class="bg-light p-4 p-md-5 contact-form w-100">
+          <div class="form-group">
+            <input type="text" name="name" class="form-control" placeholder="Your Name" required>
+          </div>
+          <div class="form-group">
+            <input type="email" name="_replyto" class="form-control" placeholder="Your Email" required>
+          </div>
+          <div class="form-group">
+            <input type="text" name="subject" class="form-control" placeholder="Subject" required>
+          </div>
+          <div class="form-group">
+            <textarea name="message" class="form-control" rows="5" placeholder="Message" required></textarea>
+          </div>
+          <div class="form-group">
+            <input type="submit" value="Send Message" class="btn btn-primary py-3 px-5">
+          </div>
+        </form>
+      </div>
+
+      <!-- Contact Info -->
+      <div class="col-md-6 d-flex ftco-animate">
+        <div class="info-wrap w-100">
+          <p>
+            <span class="icon"><i class="fa fa-map-marker-alt"></i></span>
+            <span class="text-wrap"><strong>Address</strong>Pune, Maharashtra, India</span>
+          </p>
+          <p>
+            <span class="icon"><i class="fa fa-phone"></i></span>
+            <span class="text-wrap"><strong>Phone</strong><a href="tel:+91XXXXXXXXXX">+91 9096796270</a></span>
+          </p>
+          <p>
+            <span class="icon"><i class="fa fa-envelope"></i></span>
+            <span class="text-wrap"><strong>Email</strong><a href="mailto:youremail@gmail.com">sunilkarandeofficial@gmail.com</a></span>
+          </p>
+          <p>
+            <span class="icon"><i class="fab fa-linkedin-in"></i></span>
+            <span class="text-wrap"><strong>LinkedIn</strong><a href="https://www.linkedin.com/in/sunil-karande-120423203/" target="_blank">linkedin.com/in/ysunil-karande-120423203</a></span>
+          </p>
+          <p>
+            <span class="icon"><i class="fab fa-github"></i></span>
+            <span class="text-wrap"><strong>GitHub</strong><a href="https://github.com/Sunil-Karande" target="_blank">github.com/Sunil-Karande</a></span>
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════
+     FOOTER
+═══════════════════════════════════════════ -->
+<footer class="ftco-footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 text-center py-4">
+        <p>© 2025 <span>Sunil Karande</span>. All rights reserved | Designed with ❤️ | Hosted on <a href="https://pages.github.com" target="_blank">GitHub Pages</a></p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+<!-- ═══════════════════════════════════════════
+     JS — Bootstrap + Custom
+═══════════════════════════════════════════ -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.2/js/bootstrap.bundle.min.js"></script>
+
+<script>
+  /* ── Typing animation (same logic as Jayesh) ── */
+  const typingEl = document.getElementById('typing-animation');
+  const texts = ["Automation Tester", "Security Tester", "QA Engineer"];
+  let idx = 0;
+  function type() {
+    let text = texts[idx];
+    let i = 0;
+    typingEl.textContent = "";
+    let interval = setInterval(() => {
+      typingEl.textContent += text[i];
+      i++;
+      if (i === text.length) {
+        clearInterval(interval);
+        setTimeout(() => {
+          idx = (idx + 1) % texts.length;
+          type();
+        }, 1500);
+      }
+    }, 150);
+  }
+  type();
+
+  /* ── Navbar: add background on scroll (same behavior) ── */
+  $(window).scroll(function () {
+    if ($(this).scrollTop() > 50) {
+      $('#ftco-navbar').addClass('scrolled');
+    } else {
+      $('#ftco-navbar').removeClass('scrolled');
+    }
+  });
+
+  /* ── Scroll reveal (replaces AOS/ftco-animate) ── */
+  const animEls = document.querySelectorAll('.ftco-animate');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('fadeInUp');
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  animEls.forEach(el => observer.observe(el));
+
+  /* ── Skill bar animation ── */
+  const bars = document.querySelectorAll('.progress-bar[data-width]');
+  const barObserver = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        const w = parseFloat(e.target.getAttribute('data-width'));
+        e.target.style.transform = `scaleX(${w})`;
+        e.target.classList.add('animated');
+        barObserver.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.4 });
+  bars.forEach(b => barObserver.observe(b));
+
+  /* ── Smooth scroll for nav links ── */
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', function(e) {
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        window.scrollTo({ top: target.offsetTop - 66, behavior: 'smooth' });
+        // Close mobile menu
+        $('#ftco-nav').collapse('hide');
+      }
+    });
+  });
+
+  /* ── Active nav link highlight ── */
+  const sections = document.querySelectorAll('section[id]');
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(s => {
+      if (window.scrollY >= s.offsetTop - 150) current = s.id;
+    });
+    document.querySelectorAll('.nav-link').forEach(a => {
+      a.classList.toggle('active', a.getAttribute('href') === '#' + current);
+    });
+  });
+</script>
+
 </body>
 </html>
